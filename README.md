@@ -16,7 +16,7 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
   - **rodwell/** - Rodwell translation (1876)
   - **palmer/** - Palmer translation (1880, Sacred Books of the East)
 - **Quran_Pickthall_Translation.pdf** - Complete Pickthall translation in PDF format (all 114 surahs)
-- **Quran_Palmer_Translation.pdf** - Complete Palmer translation in PDF format (Sacred Books of the East, Volumes 6 & 9, includes introduction, all 114 surahs, index, and errata)
+- **Quran_Palmer_Translation.pdf** - Complete Palmer translation in PDF format (Sacred Books of the East, Volumes 6 & 9)
 
 ## Features
 
