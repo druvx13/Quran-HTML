@@ -15,6 +15,7 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
   - **yusuf-ali/** - Yusuf Ali translation with commentary
   - **rodwell/** - Rodwell translation (1876)
   - **palmer/** - Palmer translation (1880, Sacred Books of the East)
+- **Quran_Pickthall_Translation.pdf** - Complete Pickthall translation in PDF format (all 114 surahs)
 
 ## Features
 
@@ -28,6 +29,14 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
   - **Palmer** (1880) - The Qur'ân from Sacred Books of the East by E.H. Palmer
 - **Simple Navigation**: Navigate between surahs using Previous/Next links and the main index
 - **Clean Layout**: Minimal design focused on the content without external advertisements or tracking
+
+## PDF Download
+
+A complete PDF book of the Pickthall translation (all 114 surahs) is available:
+
+**[Download Quran_Pickthall_Translation.pdf](Quran_Pickthall_Translation.pdf)** (1.1 MB)
+
+This PDF contains "The Meaning of the Glorious Qur'ân" translated by Mohammed Marmaduke Pickthall (1938), formatted for easy reading and printing.
 
 ## Usage
 
