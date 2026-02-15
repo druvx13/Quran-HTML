@@ -16,6 +16,7 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
   - **rodwell/** - Rodwell translation (1876)
   - **palmer/** - Palmer translation (1880, Sacred Books of the East)
 - **Quran_Pickthall_Translation.pdf** - Complete Pickthall translation in PDF format (all 114 surahs)
+- **Quran_Palmer_Translation.pdf** - Complete Palmer translation in PDF format (Sacred Books of the East, Volumes 6 & 9, includes introduction, all 114 surahs, index, and errata)
 
 ## Features
 
@@ -30,13 +31,27 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
 - **Simple Navigation**: Navigate between surahs using Previous/Next links and the main index
 - **Clean Layout**: Minimal design focused on the content without external advertisements or tracking
 
-## PDF Download
+## PDF Downloads
 
-A complete PDF book of the Pickthall translation (all 114 surahs) is available:
+Complete PDF books of English translations are available:
 
+### Pickthall Translation (1938)
 **[Download Quran_Pickthall_Translation.pdf](Quran_Pickthall_Translation.pdf)** (1.1 MB)
 
-This PDF contains "The Meaning of the Glorious Qur'ân" translated by Mohammed Marmaduke Pickthall (1938), formatted for easy reading and printing.
+This PDF contains "The Meaning of the Glorious Qur'ân" translated by Mohammed Marmaduke Pickthall (1938), formatted for easy reading and printing. Includes all 114 surahs.
+
+### Palmer Translation (1880)
+**[Download Quran_Palmer_Translation.pdf](Quran_Palmer_Translation.pdf)** (1.6 MB)
+
+This PDF contains the complete E.H. Palmer translation from the Sacred Books of the East (Volumes 6 & 9), published in 1880. Includes:
+- Part I and Part II title pages
+- Complete introduction by E.H. Palmer
+- Abstract of the contents of the Qur'ân
+- All 114 surahs (chapters)
+- Comprehensive index
+- Errata
+
+Both PDFs are professionally formatted for reading, studying, and printing.
 
 ## Usage
 
