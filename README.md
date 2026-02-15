@@ -1,12 +1,12 @@
 # Unicode Qur'an
 
-This is an independent website presenting the complete Holy Qur'an in Unicode Arabic with IPA (International Phonetic Alphabet) transliteration.
+This is an independent website presenting the complete Holy Qur'an in Unicode Arabic with both IPA (International Phonetic Alphabet) and DIN31635 transliteration systems.
 
 ## Contents
 
 - **index.html** - Main index page with links to all 114 surahs and English translations
-- **001.html - 114.html** - Individual surahs (chapters) of the Qur'an with Arabic Unicode and IPA transliteration
-- **xlit.html** - Transliteration table explaining the IPA system used
+- **001.html - 114.html** - Individual surahs (chapters) of the Qur'an with Arabic Unicode, IPA transliteration, and DIN31635 transliteration
+- **xlit.html** - Transliteration table explaining both the IPA and DIN31635 systems used
 - **arabic.jpg** - Arabic calligraphy image
 - **css/marg.css** - Stylesheet for the website
 - **fonts/** - Directory containing Amiri font files for beautiful Arabic typography
@@ -20,7 +20,9 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
 
 - **Amiri Font**: Uses the beautiful Amiri typeface, a classical Arabic font in Naskh style specifically designed for Quranic text
 - **Unicode Arabic Text**: The Qur'an is displayed using Unicode characters for proper Arabic rendering
-- **IPA Transliteration**: Each verse includes a mechanical letter-by-letter transliteration into International Phonetic Alphabet
+- **Dual Transliteration System**: Each verse includes two transliteration systems:
+  - **IPA Transliteration**: Mechanical letter-by-letter conversion into International Phonetic Alphabet for linguistic study
+  - **DIN31635 Transliteration**: Phonetic transliteration following the German DIN 31635:1982 standard, showing only recited sounds for easier pronunciation learning
 - **Multiple English Translations**: Four complete English translations included:
   - **Pickthall** (1938) - The Meaning of the Glorious Qur'ân by M.M. Pickthall
   - **Yusuf Ali** - The Holy Qur'ân: Text, Translation and Commentary
@@ -42,7 +44,13 @@ To view the website locally:
 
 ## Note on Transliteration
 
-The IPA transliteration is NOT a pronunciation guide. Rather, it is a mechanical conversion of the Arabic, letter by letter, into equivalent IPA characters. The Arabic text should be treated as primary, and the transliteration as a study aid.
+This website provides two different transliteration systems:
+
+1. **IPA (International Phonetic Alphabet)**: A mechanical conversion of Arabic text, letter by letter, into equivalent IPA characters. This is NOT a pronunciation guide but rather a linguistic tool for precise character mapping.
+
+2. **DIN31635**: A phonetic transliteration following the German standard DIN 31635:1982. This system shows only the sounds that are actually recited/pronounced during Quranic recitation, making it more practical and easier to read for those learning proper Arabic pronunciation.
+
+The Arabic text should always be treated as primary, with both transliterations serving as study aids.
 
 ## Typography
 
