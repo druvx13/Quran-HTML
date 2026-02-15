@@ -59,3 +59,14 @@ The Amiri font is included in the `fonts/` directory and is automatically loaded
 ## Source
 
 This content was extracted from the Internet Sacred Text Archive's Unicode Qur'an collection and adapted to be a standalone, independent website.
+
+## License
+
+This project is licensed under the [MIT No Attribution (MIT-0) License](LICENSE).
+
+**License Summary:**
+- The **website code and compilation** are licensed under MIT-0, allowing unrestricted use without attribution requirements
+- The **Amiri font files** in the `fonts/` directory are licensed under the [SIL Open Font License (OFL)](fonts/OFL.txt)
+- The **Qur'anic text** and **historical translations** (Pickthall, Yusuf Ali, Rodwell, Palmer) are in the public domain
+
+You are free to use, modify, and distribute this work for any purpose without restriction.
