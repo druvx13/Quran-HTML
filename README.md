@@ -11,6 +11,9 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
 - **css/marg.css** - Stylesheet for the website
 - **fonts/** - Directory containing Amiri font files for beautiful Arabic typography
 - **translations/** - English translations of the Qur'an:
+  - **unified/** - Unified translation with Arabic, IPA, romanization, and English (Yusuf Ali)
+    - **[quran-complete.pdf](translations/unified/quran-complete.pdf)** - Complete Quran as a single PDF (6.8 MB)
+    - **[quran-complete.html](translations/unified/quran-complete.html)** - Complete Quran as a single HTML file
   - **pickthall/** - Pickthall translation (1938)
   - **yusuf-ali/** - Yusuf Ali translation with commentary
   - **rodwell/** - Rodwell translation (1876)
@@ -18,7 +21,7 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
 
 ## Features
 
-- **Amiri Font**: Uses the beautiful Amiri typeface, a classical Arabic font in Naskh style specifically designed for Quranic text
+- **Complete PDF Version**: Download the entire Quran with Arabic text (using system fonts for proper rendering), English surah names, IPA transliteration, romanization, and English translation as a single PDF file (6.8 MB) from the [unified translation directory](translations/unified/)
 - **Unicode Arabic Text**: The Qur'an is displayed using Unicode characters for proper Arabic rendering
 - **IPA Transliteration**: Each verse includes a mechanical letter-by-letter transliteration into International Phonetic Alphabet
 - **Multiple English Translations**: Four complete English translations included:
