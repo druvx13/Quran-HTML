@@ -56,22 +56,28 @@ class QuranData:
                 else:
                     surah_info['name'] = rest
         
-        # Extract verses
+        # Extract verses - anchors are at root level in this HTML
         ayahs = []
-        for p in soup.find_all('p'):
-            # Look for verse anchors
-            anchor = p.find('a', {'name': lambda x: x and x.startswith('an_')})
-            if anchor:
-                verse_num = anchor.get_text().strip()
-                # Get text after the anchor
-                text = p.get_text()
-                # Remove verse number from beginning
-                text = text[len(verse_num):].strip()
-                if text:
-                    ayahs.append({
-                        'number': int(verse_num),
-                        'text': text
-                    })
+        for anchor in soup.find_all('a', {'name': lambda x: x and x.startswith('an_')}):
+            verse_num = anchor.get_text().strip()
+            # Get text after the anchor (next sibling text)
+            text = ''
+            # Get all text after the anchor until the next anchor or closing tag
+            for sibling in anchor.next_siblings:
+                if sibling.name == 'a':  # Stop at next anchor
+                    break
+                if isinstance(sibling, str):
+                    text += sibling
+                elif sibling.name and sibling.name.lower() not in ['p', 'div', 'hr']:
+                    text += sibling.get_text()
+            
+            text = text.strip()
+            # Remove trailing </P> or other tags
+            if text:
+                ayahs.append({
+                    'number': int(verse_num),
+                    'text': text
+                })
         
         surah_info['ayahs'] = ayahs
         return surah_info
