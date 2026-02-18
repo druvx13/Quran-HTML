@@ -372,20 +372,23 @@ class QuranPDFGenerator:
             
             # Add verses
             for ayah in surah['ayahs']:
-                # Verse number
-                verse_label = Paragraph(f"[{ayah['number']}]", self.styles['VerseNumber'])
-                
-                # Transliteration (if available)
+                # Transliteration (if available) with verse number
                 if ayah['transliteration']:
                     translit = Paragraph(
-                        f"<i>{ayah['transliteration']}</i>",
+                        f"<b>[{ayah['number']}]</b> <i>{ayah['transliteration']}</i>",
                         self.styles['Transliteration']
                     )
                     story.append(translit)
                 
-                # Translation
-                translation = Paragraph(ayah['translation'], self.styles['Translation'])
-                story.append(translation)
+                # Translation with verse number if no transliteration
+                if ayah['translation']:
+                    if ayah['transliteration']:
+                        # If we have transliteration, don't repeat verse number
+                        translation = Paragraph(ayah['translation'], self.styles['Translation'])
+                    else:
+                        # If no transliteration, add verse number to translation
+                        translation = Paragraph(f"<b>[{ayah['number']}]</b> {ayah['translation']}", self.styles['Translation'])
+                    story.append(translation)
             
             # Page break after each Surah (except the last one)
             if idx < len(self.data.surahs) - 1:
