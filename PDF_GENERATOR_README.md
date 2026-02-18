@@ -42,8 +42,8 @@ pip3 install reportlab beautifulsoup4 lxml
 ## Output
 
 - **File**: `Qur'an_Pickthall_Transliteration_Complete.pdf`
-- **Size**: ~1 MB
-- **Pages**: ~666 pages
+- **Size**: ~2.1 MB
+- **Pages**: ~1,284 pages
 - **Format**: A5 (148 × 210 mm / 5.83 × 8.27 inches)
 
 ## Data Sources
