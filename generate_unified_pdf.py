@@ -8,6 +8,125 @@ import os
 from pathlib import Path
 from weasyprint import HTML, CSS
 from bs4 import BeautifulSoup
+import html
+
+# English names for all 114 surahs
+SURAH_ENGLISH_NAMES = {
+    1: "Fātiḥa, or the Opening Chapter",
+    2: "Baqara, or the Heifer",
+    3: "Āl-i-'Imrān, or The Family of 'Imrān",
+    4: "Nisāa, or The Women",
+    5: "Māïda, or The Table Spread",
+    6: "An'ām, or Cattle",
+    7: "A'rāf, or the Heights",
+    8: "Anfāl, or the Spoils of War",
+    9: "Tauba (Repentance) or Barāat (Immunity)",
+    10: "Yūnus, or Jonah",
+    11: "Hūd (The Prophet Hūd)",
+    12: "Yūsuf, or Joseph",
+    13: "Ra'd or Thunder",
+    14: "Ibrāhīm, or Abraham",
+    15: "Al-Hijr, or The Rocky Tract",
+    16: "Naḥl or The Bee",
+    17: "Banī Isrā-īl, or the Children of Israel",
+    18: "Kahf, or the Cave",
+    19: "Maryam, or Mary",
+    20: "Ṭā-Hā (Mystic Letters, Ṭ. H.)",
+    21: "Anbiyāa, or The Prophets",
+    22: "Ḥajj, or The Pilgrimage",
+    23: "Mū-minūn",
+    24: "Nūr, or Light",
+    25: "Furqān, or The Criterion",
+    26: "Shu'arāa, or The Poets",
+    27: "Naml, or the Ants",
+    28: "Qaṣaṣ, or the Narration",
+    29: "'Ankabūt, or the Spider",
+    30: "Rūm, or The Roman Empire",
+    31: "Luqmān (the Wise)",
+    32: "Sajda, or Adoration",
+    33: "Aḥzāb, or The Confederates",
+    34: "Sabā, or the City of Sabā",
+    35: "Fāṭir, or The Originator of Creation; or Malāïka, or The Angels",
+    36: "Yā-Sīn (being Abbreviated Letters)",
+    37: "Ṣāffāt, or Those Ranged in Ranks",
+    38: "Ṣād (being one of the Abbreviated Letters)",
+    39: "Zumar, or the Crowds",
+    40: "Mū-min, or The Believer",
+    41: "Hā-mīm (Abbreviated Letters), or Ḥā-Mīm Sajda, or Fuṣṣilat",
+    42: "Shūrā, or Consultation",
+    43: "Zukhruf, or Gold Adornments",
+    44: "Dukhān, or Smoke (or Mist)",
+    45: "Jathiya, or Bowing the Knee",
+    46: "Aḥqāf, or Winding Sand-tracts",
+    47: "Muḥammad (the Prophet)",
+    48: "Fat-ḥ or Victory",
+    49: "Ḥujurāt, or the Inner Apartments",
+    50: "Qāf",
+    51: "Zāriyāt, or the Winds That Scatter",
+    52: "Ṭūr, or the Mount",
+    53: "Najm, or the Star",
+    54: "Qamar, or the Moon",
+    55: "Raḥmān, or (God) Most Gracious",
+    56: "Wāqi'a, or The Inevitable Event",
+    57: "Ḥadīd, or Iron",
+    58: "Mujādila, or The Woman who Pleads",
+    59: "Ḥashr, or the Gathering",
+    60: "Mumtaḥana, or the Woman to be Examined",
+    61: "Ṣaff, or Battle Array",
+    62: "Jumu'a, or the Assembly (Friday) Prayer",
+    63: "Munāfiqūn, or the Hypocrites",
+    64: "Tagābun, or Mutual Loss and Gain",
+    65: "Ṭalāq, or Divorce",
+    66: "Taḥrīm, or Holding (something) to be Forbidden",
+    67: "Mulk, or Dominion",
+    68: "Qalam, or the Pen, or Nūn",
+    69: "Ḥāqqa, or the Sure Reality",
+    70: "Ma'ārij, or the Ways of Ascent",
+    71: "Nūḥ, or Noah",
+    72: "Jinn, or the Spirits",
+    73: "Muzzammil, or Folded in Garments",
+    74: "Muddaththir, or One Wrapped Up",
+    75: "Qiyāmat, or the Resurrection",
+    76: "Dahr, or Time, or Insān, or Man",
+    77: "Mursalāt, or Those Sent Forth",
+    78: "Nabaa, or The (Great) News",
+    79: "Nāzi'āt, or Those Who Tear Out",
+    80: "'Abasa, or He Frowned",
+    81: "Takwīr, or the Folding Up",
+    82: "Infiṭār, or The Cleaving Asunder",
+    83: "Taṭfīf, or Dealing in Fraud",
+    84: "Inshiqāq, or The Rending Asunder",
+    85: "Burūj, or The Zodiacal Signs",
+    86: "Ṭāriq, or The Night-Visitant",
+    87: "A'lā, or the Most High",
+    88: "Gāshiya, or the Overwhelming Event",
+    89: "Fajr, or the Break of Day",
+    90: "Balad, or The City",
+    91: "Shams, or The Sun",
+    92: "Lail, or The Night",
+    93: "Duhā, or The Glorious Morning Light",
+    94: "Inshirāḥ, or The Expansion",
+    95: "Tīn, or The Fig",
+    96: "Iqraa, or Read! or Proclaim! Or 'Alaq, or The Clot of Congealed Blood",
+    97: "Qadr, or The Night of Power (or Honour)",
+    98: "Baiyina, or The Clear Evidence",
+    99: "Zilzāl, or The Convulsion",
+    100: "'Adiyāt, or Those that run",
+    101: "Al-Qāri'a, or The Day of Noise and Clamour",
+    102: "Takathur or Piling Up",
+    103: "'Aṣr, or Time through the Ages",
+    104: "Humaza, or the Scandal-monger",
+    105: "Fīl, or The Elephant",
+    106: "The Quraish, (Custodians of the Ka'ba)",
+    107: "Mā'ūn, or Neighbourly Needs",
+    108: "Kauthar, or Abundance",
+    109: "Kāfirūn, or Those who reject Faith",
+    110: "Naṣr, or Help",
+    111: "Lahab, or (the Father of) Flame",
+    112: "Ikhlāṣ, or Purity (of Faith)",
+    113: "Falaq, or The Dawn",
+    114: "Nās, or Mankind"
+}
 
 def extract_surah_content(html_file):
     """Extract the surah content from an HTML file."""
@@ -41,11 +160,15 @@ def create_combined_html():
     <meta charset="UTF-8">
     <title>The Holy Quran - Complete Unified Translation</title>
     <style>
+        /* Override any font specifications to allow system fonts for proper Arabic rendering */
+        * {{
+            font-family: inherit !important;
+        }}
+        
         {css_content}
         
-        /* Additional PDF-specific styles */
+        /* Additional PDF-specific styles - NO FONT RESTRICTIONS for proper Arabic rendering */
         body {{
-            font-family: 'Amiri', 'Arial Unicode MS', Arial, sans-serif;
             margin: 2cm;
             line-height: 1.6;
         }}
@@ -64,7 +187,15 @@ def create_combined_html():
         h2 {{
             text-align: center;
             font-size: 18pt;
+            margin-bottom: 10pt;
+        }}
+        
+        h3 {{
+            text-align: center;
+            font-size: 14pt;
             margin-bottom: 20pt;
+            font-style: italic;
+            color: #555;
         }}
         
         table {{
@@ -156,13 +287,17 @@ def create_combined_html():
             with open(html_file, 'r', encoding='utf-8') as f:
                 soup = BeautifulSoup(f.read(), 'html.parser')
                 title = soup.find('h1')
+                english_name = SURAH_ENGLISH_NAMES.get(i, "")
                 if title:
                     # Extract surah name from title
                     title_text = title.get_text(strip=True)
                     # Remove just the number at the start if present
                     if '. ' in title_text:
                         title_text = title_text.split('. ', 1)[1] if '. ' in title_text else title_text
-                    html_content += f'            <li>{i}. {title_text}</li>\n'
+                    if english_name:
+                        html_content += f'            <li>{i}. {title_text} — {english_name}</li>\n'
+                    else:
+                        html_content += f'            <li>{i}. {title_text}</li>\n'
     
     html_content += '        </ul>\n    </div>\n\n'
     
@@ -177,9 +312,13 @@ def create_combined_html():
         print(f"Processing Surah {i}...")
         
         title, subtitle, table = extract_surah_content(html_file)
+        english_name = SURAH_ENGLISH_NAMES.get(i, "")
         
         if title:
             html_content += f"    <h1>{title.get_text(strip=True)}</h1>\n"
+        
+        if english_name:
+            html_content += f"    <h3>{english_name}</h3>\n"
         
         if subtitle:
             html_content += f"    <h2>{subtitle.get_text(strip=True)}</h2>\n"
