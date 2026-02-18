@@ -24,10 +24,11 @@ This directory contains the complete Holy Quran with:
 ## Features
 
 - **Complete Coverage**: All 114 surahs from Al-Fatiha to An-Nas
+- **English Surah Names**: Each surah includes its English name/meaning alongside the Arabic
 - **Multiple Representations**: Each verse includes Arabic, IPA, romanization, and English
-- **Beautiful Typography**: Uses Amiri font for classical Quranic text rendering
+- **Proper Arabic Rendering**: Uses system fonts for authentic Arabic script display (no font restrictions)
 - **Professional Layout**: Formatted for easy reading and printing
-- **Table of Contents**: Quick navigation to any surah
+- **Table of Contents**: Quick navigation to any surah with both Arabic and English names
 
 ## Usage
 

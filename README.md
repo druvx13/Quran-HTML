@@ -21,8 +21,7 @@ This is an independent website presenting the complete Holy Qur'an in Unicode Ar
 
 ## Features
 
-- **Complete PDF Version**: Download the entire Quran with Arabic text, IPA transliteration, romanization, and English translation as a single PDF file (6.8 MB) from the [unified translation directory](translations/unified/)
-- **Amiri Font**: Uses the beautiful Amiri typeface, a classical Arabic font in Naskh style specifically designed for Quranic text
+- **Complete PDF Version**: Download the entire Quran with Arabic text (using system fonts for proper rendering), English surah names, IPA transliteration, romanization, and English translation as a single PDF file (6.8 MB) from the [unified translation directory](translations/unified/)
 - **Unicode Arabic Text**: The Qur'an is displayed using Unicode characters for proper Arabic rendering
 - **IPA Transliteration**: Each verse includes a mechanical letter-by-letter transliteration into International Phonetic Alphabet
 - **Multiple English Translations**: Four complete English translations included:
